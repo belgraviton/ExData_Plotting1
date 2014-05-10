@@ -1,9 +1,12 @@
-## This script creates png file with histogram of household global minute-averaged active power distribution,
-## plot of energy sub metering time dependence
+## This script creates png file with plot of household global minute-averaged active power time dependence,
+## plot of minute-averaged voltage time dependence,
+## plot of energy sub metering time dependence,
+## plot of household global minute-averaged reactive power time dependence
+
 ## Data file 'household_power_consumption.txt' should be in current R directory
 
 ## Reading all data
-data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';')
+data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';', colClasses = "character")
 
 ## Adding new column DateTime = Date + ' ' + Time
 data$DateTime = paste(data$Date, data$Time, sep=' ')

@@ -2,7 +2,7 @@
 ## Data file 'household_power_consumption.txt' should be in current R directory
 
 ## Reading all data
-data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';')
+data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';', colClasses = "character")
 
 ## Adding new column DateTime = Date + ' ' + Time
 data$DateTime = paste(data$Date, data$Time, sep=' ')

@@ -2,7 +2,7 @@
 ## Data file 'household_power_consumption.txt' should be in current R directory
 
 ## Reading all data
-data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';')
+data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';', colClasses = "character")
 
 ## Adding new column DateTime = Date + ' ' + Time
 data$DateTime = paste(data$Date, data$Time, sep=' ')
@@ -25,5 +25,5 @@ png(filename = 'plot3.png', width = 480, height = 480)
 with(dataSubset,plot(DateTime,Sub_metering_1, 'l',col = 'black', main = '', xlab = '', ylab = 'Energy sub metering'))
 with(dataSubset,points(DateTime,Sub_metering_2, 'l',col = 'red'))
 with(dataSubset,points(DateTime,Sub_metering_3, 'l',col = 'blue'))
-legend('topright',pch = '-', pt.cex = 0.5,  col = c('black','red','blue'), legend = c('Sub_metering_1','Sub_metering_2','Sub_metering_3'))
+legend('topright',pch = '-', col = c('black','red','blue'), legend = c('Sub_metering_1','Sub_metering_2','Sub_metering_3'))
 dev.off()

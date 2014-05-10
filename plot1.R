@@ -1,8 +1,8 @@
-## This script creates png histogram of global active power distribution
+## This script creates png histogram of household global minute-averaged active power distribution
 ## Data file 'household_power_consumption.txt' should be in current R directory
 
 ## Reading all data
-data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';')
+data = read.table(file = 'household_power_consumption.txt', header = TRUE, sep = ';', colClasses = "character")
 
 ## Adding new column DateTime = Date + ' ' + Time
 data$DateTime = paste(data$Date, data$Time, sep=' ')
@@ -19,6 +19,6 @@ dataSubset = subset(data,DateTime > date1 & DateTime < date2)
 dataSubset$Global_active_power = as.numeric(dataSubset$Global_active_power)
 
 ## Creating histogram
-png(filename = 'plot1.png', width = 480, height = 480, bg = "transparent")
+png(filename = 'plot1.png', width = 480, height = 480)
 with(dataSubset,hist(Global_active_power, col = 'red',main = 'Global active power', xlab = 'Global active power (kilowatts)'))
 dev.off()
